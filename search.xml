@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[哈哈哈哈哈]]></title>
-    <url>%2F2017%2F12%2F22%2Fhello%2F</url>
-    <content type="text"><![CDATA[blah blah blah]]></content>
+    <title><![CDATA[如何兼容性解决数据库insert时添加where条件]]></title>
+    <url>%2F2017%2F07%2F05%2Fhow_can_solve_insert_need_where_in_sql%2F</url>
+    <content type="text"><![CDATA[在数据库插入的场景中，我们可能会遇见这种情况：检测数据库是否含有即将要写入的数据。比如 province（省份）包含一个唯一字段:name,以往的做法是: 1:先执行一句查询的sql语句 1select * from province where name=&apos;?&apos; 2:如果这条数据不存在，再执行插入语句1insert into province(name) values(&apos;?&apos;) 虽然说上面的方法能够完成这样的场景，但是不够优雅！所以我在想，有没有一个好的办法能够解决这样的问题呢？于是，我联想到几条sql语句 把当前时间转化成特定格式的字符串1select to_char(to_timestamp(extract(epoch from now() )::integer), 'YYYY-MM-DD') 把代处理表中的数据插入到新表中1insert province (name) select name from pendding_province_list 于是，我开始着手改造insert插入语句12insert into province (name) select &apos;?&apos; where not exists (select * from province where name=&apos;?&apos;) 完美！]]></content>
+      <categories>
+        <category>SQL</category>
+      </categories>
       <tags>
-        <tag>哈哈哈</tag>
+        <tag>SQL</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2017%2F07%2F04%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
   </entry>
 </search>
