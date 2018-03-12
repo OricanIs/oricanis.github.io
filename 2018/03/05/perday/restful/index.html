@@ -100,7 +100,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/03/05/perday/restful/index.html">
 <meta property="og:site_name" content="Darling Programmer">
 <meta property="og:description" content="理解Restful架构REST的由来  在互联网行业，实践总是走在理论的前列。Web发展至今，面向静态文档的HTTP/1.0协议已经无法满足Web应用的开发需求，因此需要设计新版本的HTTP协议。当前的发展趋势，前端设备层出不穷，因此，必须有一种统一的机制，方便不同的前端设备与后端进行通信。Roy Fielding(Apache软件基金会的合作创始人) 在他的博士学位论文Architectural">
-<meta property="og:updated_time" content="2018-03-12T11:18:16.347Z">
+<meta property="og:updated_time" content="2018-03-12T11:41:21.568Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Restful架构的理解及使用场景分析">
 <meta name="twitter:description" content="理解Restful架构REST的由来  在互联网行业，实践总是走在理论的前列。Web发展至今，面向静态文档的HTTP/1.0协议已经无法满足Web应用的开发需求，因此需要设计新版本的HTTP协议。当前的发展趋势，前端设备层出不穷，因此，必须有一种统一的机制，方便不同的前端设备与后端进行通信。Roy Fielding(Apache软件基金会的合作创始人) 在他的博士学位论文Architectural">
@@ -396,7 +396,7 @@
       
 
       
-        <h2 id="理解Restful架构"><a href="#理解Restful架构" class="headerlink" title="理解Restful架构"></a>理解Restful架构</h2><h3 id="REST的由来"><a href="#REST的由来" class="headerlink" title="REST的由来"></a>REST的由来</h3><p>  在互联网行业，实践总是走在理论的前列。Web发展至今，面向静态文档的HTTP/1.0协议已经无法满足Web应用的开发需求，因此需要设计新版本的HTTP协议。当前的发展趋势，前端设备层出不穷，因此，必须有一种统一的机制，方便不同的前端设备与后端进行通信。Roy Fielding(Apache软件基金会的合作创始人) 在他的博士学位论文Architectural Styles and the Design of Network-based Software Architectures中，Fielding更为系统、严谨地阐述了这套理论框架，并且使用这套理论框架推导出了一种新的架构风格，并且为这种架构风格取了一个令人轻松愉快的名字“REST”——Representational State Transfer（表述性状态转移）的缩写。</p>
+        <h2 id="理解Restful架构"><a href="#理解Restful架构" class="headerlink" title="理解Restful架构"></a>理解Restful架构</h2><h3 id="REST的由来"><a href="#REST的由来" class="headerlink" title="REST的由来"></a>REST的由来</h3><p>  在互联网行业，实践总是走在理论的前列。Web发展至今，面向静态文档的HTTP/1.0协议已经无法满足Web应用的开发需求，因此需要设计新版本的HTTP协议。当前的发展趋势，前端设备层出不穷，因此，必须有一种统一的机制，方便不同的前端设备与后端进行通信。Roy Fielding(Apache软件基金会的合作创始人) 在他的博士学位论文Architectural Styles and the Design of Network-based Software Architectures中，Fielding更为系统、严谨地阐述了这套理论框架，并且使用这套理论框架推导出了一种新的架构风格，并且为这种架构风格取了一个令人轻松愉快的名字“REST”——Representational State Transfer（表述性状态转移）的缩写。<br> <a id="more"></a></p>
 <h3 id="Rest架构风格最重要的架构约束"><a href="#Rest架构风格最重要的架构约束" class="headerlink" title="Rest架构风格最重要的架构约束"></a>Rest架构风格最重要的架构约束</h3><ul>
 <li>客户-服务器（Client-Server）：通信只能由客户端单方面发起，表现为请求-响应的形式。</li>
 <li>无状态（Stateless）：通信的会话状态（Session State）应该全部由客户端负责维护。</li>
@@ -447,6 +447,45 @@
 </div><br>可伸缩性<br><div class="note "><p>充分利用好通信链各个位置的HTTP缓存组件，可以带来更好的可伸缩性。其实很多时候，在Web前端做性能优化，产生的效果不亚于仅仅在服务器端做性能优化，但是HTTP协议层面的缓存常常被一些资深的架构师完全忽略掉。</p>
 </div><br>松耦合<br><div class="note "><p>统一接口+超文本驱动，带来了最大限度的松耦合。允许服务器端和客户端程序在很大范围内，相对独立地进化。对于设计面向企业内网的API来说，松耦合并不是一个很重要的设计关注点。但是对于设计面向互联网的API来说，松耦合变成了一个必选项，不仅在设计时应该关注，而且应该放在最优先位置。</p>
 </div></p>
+<h2 id="Restful-API设计"><a href="#Restful-API设计" class="headerlink" title="Restful API设计"></a>Restful API设计</h2><div class="note "><p>在 REST 提出多年来，当前对于 REST 风格的应用最多的即是 Restful API 。<br>Restful API 一般分为对外和对内。对外的 Restful API 为面向公网的公共服务接口，此类接口一般可以通过公网直接访问，或是经过一定的安全认证后通过公网访问。而对内的 Restful API 则主要是一整套系统内部各个子系统或模块之间交互的标准接口，相对于对外的 Restful API 接口，内部 API 接口更加标准化。<br>按照 REST 的要求，Restful API 的设计可以总结出以下的一些具体要求。</p>
+</div>
+<h3 id="HTTPS-域名"><a href="#HTTPS-域名" class="headerlink" title="HTTPS + 域名"></a>HTTPS + 域名</h3><p>Restful API 的无状态性，要求客户端需要在调用接口时传入足够的信息以供服务端用于操作指定的资源，这就有可能使得接口数据在网络传输过程中遭到拦截导致更多的数据泄漏。因此在提供 Restful API ，特别是对外的 API 时，应当尽可能的使用 HTTPS 协议，以确保传输过程的安全。</p>
+<p>另一方面，在 API 地址中使用域名，可以进一步解耦服务端与客户端，服务端可以更加容易的迁移和扩展，而不会影响服务端的使用。</p>
+<p>实际应用过程中，使用 HTTPS 协议，更多应用与对外的 Restful API 接口，而对内网的 Restful API 来说，可以在信任内网安全的前提下，使用 HTTP 协议，以降低复杂度，提高效率。</p>
+<h3 id="URL-指向资源，HTTP-动词指向操作"><a href="#URL-指向资源，HTTP-动词指向操作" class="headerlink" title="URL 指向资源，HTTP 动词指向操作"></a>URL 指向资源，HTTP 动词指向操作</h3><p>按照 REST 的要求，Restful API 的 URL 地址应指向具体的一个资源，例如用户 user 。URL 中应当只包含资源名词，不应该包含指向操作的动词，例如新建、查询、修改、删除等。具体操作通过 HTTP 动词（ GET / POST / PUT / DELETE ）指定。</p>
+<h3 id="指定-API-版本号"><a href="#指定-API-版本号" class="headerlink" title="指定 API 版本号"></a>指定 API 版本号</h3><p>在设计 Restful API 时，特别是对外的 API ，通常需要考虑 API 多版本的问题，因为 API 会进行升级，而客户端则处于不可控状态，可能无法及时对 API 调用过程进行配合升级。因此，服务端需要提供对不同版本 API 的支持，同时，客户端在调用 API 时也需要指定特定的版本号，以确保调用过程正常进行。</p>
+<p>版本号的指定，可以在 URL 中，也可以在 HTTP 头信息中。</p>
+<h3 id="指定参数"><a href="#指定参数" class="headerlink" title="指定参数"></a>指定参数</h3><p>在 Restful API 请求中，可能需要根据不同的情况进行过滤，需要增加操作参数。一般来说，针对 GET 和 DELTE 请求需要增加操作参数的情况较多，而 POST 和 PUT 更多的是通过 HTTP 报文体提供操作数据信息。</p>
+<p>指定参数可以通过两种方式：URL 地址参数和 ? 参数。<br>例如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// URL 地址参数</div><div class="line">https://open.domain.com/app/user/123456/Admin</div><div class="line"></div><div class="line">//? 参数</div><div class="line">https://open.domain.com/app/user?id=123456&amp;type=Admin</div></pre></td></tr></table></figure></p>
+<h3 id="使用-JSON-作为返回数据格式"><a href="#使用-JSON-作为返回数据格式" class="headerlink" title="使用 JSON 作为返回数据格式"></a>使用 JSON 作为返回数据格式</h3><p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// JSON 格式</div><div class="line">&#123;&quot;name&quot;:&quot;user&quot;,&quot;type&quot;:&quot;Admin&quot;&#125;</div><div class="line"></div><div class="line">// XML 格式</div><div class="line">&lt;user&gt;&lt;name&gt;user&lt;/name&gt;&lt;type&gt;Admin&lt;/type&gt;&lt;/user&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="使用安全认证机制"><a href="#使用安全认证机制" class="headerlink" title="使用安全认证机制"></a>使用安全认证机制</h3><p>在使用 Restful API ，特别是对公网开放的 Restful API，通常需要通过一定的安全认证机制来进行实现访问控制。目前主流的方案是通过 OAuth2.0 实现安全认证。</p>
+<h2 id="Restful-API-使用场景"><a href="#Restful-API-使用场景" class="headerlink" title="Restful API 使用场景"></a>Restful API 使用场景</h2><p>根据 Restful API 的特定，其应用场景可以参考以下的场景：</p>
+<ul>
+<li><p>资源集中型服务，例如针对用户的信息查询，针对订单的信息查询的等，这类型服务以资源实体为中心，操作大多为简单的 CRUD 操作，业务逻辑简单。</p>
+</li>
+<li><p>访问量大，且对访问时效要求比较高的服务。Restful API 相对于 SOAP WebService 来说，数据量更小，解析更快，在网络环境下能够提高访问的速度和承载能力。</p>
+</li>
+<li><p>面向公网的，且安全性要求较低的开放型 API 服务。这类服务通常由开发者向公网的所有使用者开放，Restful API 的形式能够简化服务调用过程，提高访问效率。</p>
+</li>
+</ul>
+<blockquote>
+<p>对于复杂业务操作，例如保全申请提交，理赔申请提交等，使用 Restful API 形式难以进行设计，因此此类的业务可以使用传统 RPC 的接口形式进行设计，SOAP WebService 或者 HTTP/JSON 形式的 RPC 都是可行的选择，使用 RPC 形式反而会更加简单。</p>
+</blockquote>
+<h2 id="Restful-API-优势"><a href="#Restful-API-优势" class="headerlink" title="Restful API 优势"></a>Restful API 优势</h2><p>Restful API 充分利用了 HTTP 协议的设计，使用面向资源的接口设计，相对于传统 RPC 降低了接口设计的复杂度。</p>
+<p>例如，使用传统 RPC 形式设计针对用户对象的 CRUD 操作：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">// 新建用户</div><div class="line">https://open.domain.com/app/addUser</div><div class="line">// 查询用户</div><div class="line">https://open.domain.com/app/retrieveUser</div><div class="line">// 更新用户</div><div class="line">https://open.domain.com/app/updateUser</div><div class="line">// 删除用户</div><div class="line">https://open.domain.com/app/deleteUser</div><div class="line">在以上实例中，需要通过四个 URL 来实现 CRUD 操作。而通过 Restful API 设计，可为如下实例：</div><div class="line"></div><div class="line">// GET: 查询用户；POST: 新建用户；PUT: 更新用户；DELETE: 删除用户</div><div class="line">https://open.domain.com/app/user</div></pre></td></tr></table></figure></p>
+<p>在以上实例中，通过 HTTP 动词指定了不同的 CRUD 操作，将接口 URL 简化为了同一个地址，仅需要改变 HTTP 动词即可实现不同的操作。</p>
+<p>另一方面，相对于 SOAP/XML 形式的 RPC 服务，Restful API 采用 HTTP/JSON 的形式传递数据，降低了传输数据量，同时提高了数据解析的效率，单位时间内的负载能力会高于 SOAP WebService 服务。</p>
+<p>例如，对于 SOAP WebService 来说，基本的请求响应格式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;</div><div class="line">    &lt;soapenv:Header&gt;</div><div class="line">    &lt;/soapenv:Header&gt;</div><div class="line">    &lt;soapenv:Body&gt;</div><div class="line">    &lt;/soapenv:Body&gt;</div><div class="line">&lt;/soapenv:Envelope&gt;</div></pre></td></tr></table></figure></p>
+<p>而对于 Restful API 来说，其请求格式符合 HTTP 协议的要求，返回格式则符合标准的 JSON 格式即可。</p>
+<h2 id="Restful-API-劣势"><a href="#Restful-API-劣势" class="headerlink" title="Restful API 劣势"></a>Restful API 劣势</h2><p>Restful API 面向资源设计接口，而对于一些复杂操作来说，接口设计难度将远大于 RPC 形式。</p>
+<p>例如，用户登录验证，使用 RPC 形式设计接口如下：</p>
+<p><code>https://open.domain.com/app/checkUser</code></p>
+<p>在以上实例中，对于 Restful API 而言，很难将该业务归类为 HTTP 动词中的某一种。又比如“下单”这一功能，它涉及到了订单、用户、支付账户等多个资源实体的多种操作，因此同样也难以设计为 Restful API 。</p>
+<p>Restful API 具备高效简洁的特点，但这也因此造成 Restful API 没有类似于 SOAP 协议的规范性协议，Restful API 中的数据格式、标准、安全性等都需要由开发者决定，这也就造成了无法建立统一的 Restful API 标准，作为客户端可能需要适配多种格式的 Restful API 。</p>
+<p>选择哪种方式的接口设计，需要根据实际的应用情况进行调整，没有最好的，只有最合适的</p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><blockquote>
+<p> <a href="https://segmentfault.com/a/1190000006735330" target="_blank" rel="external">https://segmentfault.com/a/1190000006735330</a><br> <a href="http://www.infoq.com/cn/articles/understanding-restful-style" target="_blank" rel="external">http://www.infoq.com/cn/articles/understanding-restful-style</a></p>
+</blockquote>
 
       
     </div>
@@ -628,7 +667,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#理解Restful架构"><span class="nav-number">1.</span> <span class="nav-text">理解Restful架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#REST的由来"><span class="nav-number">1.1.</span> <span class="nav-text">REST的由来</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rest架构风格最重要的架构约束"><span class="nav-number">1.2.</span> <span class="nav-text">Rest架构风格最重要的架构约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#REST详解"><span class="nav-number">1.3.</span> <span class="nav-text">REST详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rest风格6个的主要特征"><span class="nav-number">1.4.</span> <span class="nav-text">Rest风格6个的主要特征</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#理解Restful架构"><span class="nav-number">1.</span> <span class="nav-text">理解Restful架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#REST的由来"><span class="nav-number">1.1.</span> <span class="nav-text">REST的由来</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rest架构风格最重要的架构约束"><span class="nav-number">1.2.</span> <span class="nav-text">Rest架构风格最重要的架构约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#REST详解"><span class="nav-number">1.3.</span> <span class="nav-text">REST详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rest风格6个的主要特征"><span class="nav-number">1.4.</span> <span class="nav-text">Rest风格6个的主要特征</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Restful-API设计"><span class="nav-number">2.</span> <span class="nav-text">Restful API设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTPS-域名"><span class="nav-number">2.1.</span> <span class="nav-text">HTTPS + 域名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#URL-指向资源，HTTP-动词指向操作"><span class="nav-number">2.2.</span> <span class="nav-text">URL 指向资源，HTTP 动词指向操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指定-API-版本号"><span class="nav-number">2.3.</span> <span class="nav-text">指定 API 版本号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指定参数"><span class="nav-number">2.4.</span> <span class="nav-text">指定参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-JSON-作为返回数据格式"><span class="nav-number">2.5.</span> <span class="nav-text">使用 JSON 作为返回数据格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用安全认证机制"><span class="nav-number">2.6.</span> <span class="nav-text">使用安全认证机制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Restful-API-使用场景"><span class="nav-number">3.</span> <span class="nav-text">Restful API 使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Restful-API-优势"><span class="nav-number">4.</span> <span class="nav-text">Restful API 优势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Restful-API-劣势"><span class="nav-number">5.</span> <span class="nav-text">Restful API 劣势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文章"><span class="nav-number">6.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
             
 
           </div>
