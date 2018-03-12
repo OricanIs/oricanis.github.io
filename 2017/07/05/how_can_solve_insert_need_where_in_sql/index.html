@@ -96,13 +96,13 @@
 <meta name="description" content="在数据库插入的场景中，我们可能会遇见这种情况：检测数据库是否含有即将要写入的数据。比如 province（省份）包含一个唯一字段:name,以往的做法是:   1:先执行一句查询的sql语句 1select * from province where name=&amp;apos;?&amp;apos; 2:如果这条数据不存在，再执行插入语句1insert into province(name) values(&amp;">
 <meta name="keywords" content="SQL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何兼容性解决数据库insert时添加where条件">
+<meta property="og:title" content="insert+where特殊场景的解决方案">
 <meta property="og:url" content="http://yoursite.com/2017/07/05/how_can_solve_insert_need_where_in_sql/index.html">
-<meta property="og:site_name" content="Darling程序员">
+<meta property="og:site_name" content="Darling Programmer">
 <meta property="og:description" content="在数据库插入的场景中，我们可能会遇见这种情况：检测数据库是否含有即将要写入的数据。比如 province（省份）包含一个唯一字段:name,以往的做法是:   1:先执行一句查询的sql语句 1select * from province where name=&amp;apos;?&amp;apos; 2:如果这条数据不存在，再执行插入语句1insert into province(name) values(&amp;">
-<meta property="og:updated_time" content="2017-07-05T12:48:49.000Z">
+<meta property="og:updated_time" content="2018-03-12T09:50:40.620Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何兼容性解决数据库insert时添加where条件">
+<meta name="twitter:title" content="insert+where特殊场景的解决方案">
 <meta name="twitter:description" content="在数据库插入的场景中，我们可能会遇见这种情况：检测数据库是否含有即将要写入的数据。比如 province（省份）包含一个唯一字段:name,以往的做法是:   1:先执行一句查询的sql语句 1select * from province where name=&amp;apos;?&amp;apos; 2:如果这条数据不存在，再执行插入语句1insert into province(name) values(&amp;">
 
 
@@ -137,7 +137,7 @@
 
 
 
-  <title>如何兼容性解决数据库insert时添加where条件 | Darling程序员</title>
+  <title>insert+where特殊场景的解决方案 | Darling Programmer</title>
   
 
 
@@ -183,7 +183,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Darling程序员</span>
+        <span class="site-title">Darling Programmer</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -319,7 +319,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Darling程序员">
+      <meta itemprop="name" content="Darling Programmer">
     </span>
 
     
@@ -327,7 +327,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">如何兼容性解决数据库insert时添加where条件</h1>
+          <h1 class="post-title" itemprop="name headline">insert+where特殊场景的解决方案</h1>
         
 
         <div class="post-meta">
@@ -458,8 +458,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/14/docker_bulid/" rel="prev" title="Docker Bulid Context 解读">
-                Docker Bulid Context 解读 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/05/perday/restful/" rel="prev" title="Restful架构的理解及使用场景分析">
+                Restful架构的理解及使用场景分析 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -547,7 +547,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

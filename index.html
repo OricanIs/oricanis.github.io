@@ -95,12 +95,12 @@
 
 <meta name="description" content="An Optimist">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Darling程序员">
+<meta property="og:title" content="Darling Programmer">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Darling程序员">
+<meta property="og:site_name" content="Darling Programmer">
 <meta property="og:description" content="An Optimist">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Darling程序员">
+<meta name="twitter:title" content="Darling Programmer">
 <meta name="twitter:description" content="An Optimist">
 
 
@@ -135,7 +135,7 @@
 
 
 
-  <title>Darling程序员</title>
+  <title>Darling Programmer</title>
   
 
 
@@ -183,7 +183,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Darling程序员</span>
+        <span class="site-title">Darling Programmer</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -310,7 +310,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/14/docker_bulid/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/05/perday/restful/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kricen">
@@ -319,7 +319,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Darling程序员">
+      <meta itemprop="name" content="Darling Programmer">
     </span>
 
     
@@ -329,7 +329,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/07/14/docker_bulid/" itemprop="url">Docker Bulid Context 解读</a></h1>
+                <a class="post-title-link" href="/2018/03/05/perday/restful/" itemprop="url">Restful架构的理解及使用场景分析</a></h1>
         
 
         <div class="post-meta">
@@ -341,8 +341,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-14T11:17:00+08:00">
-                2017-07-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-05T20:04:00+08:00">
+                2018-03-05
               </time>
             
 
@@ -364,8 +364,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Docker/" itemprop="url" rel="index">
-                    <span itemprop="name">Docker</span>
+                  <a href="/categories/每日进步一点点/" itemprop="url" rel="index">
+                    <span itemprop="name">每日进步一点点</span>
                   </a>
                 </span>
 
@@ -399,17 +399,60 @@
 
       
         
-          <div class="note "><p>镜像构建上下文（Context） </p>
-</div>
-<p> 如果注意，会看到 <code>docker build</code> 命令最后有一个 .。. 表示当前目录，而 Dockerfile 就在当前目录，因此不少初学者以为这个路径是在指定 Dockerfile 所在路径，这么理解其实是不准确的。如果对应上面的命令格式，你可能会发现，这是在指定上下文路径。那么什么是上下文呢？</p>
-<p>首先我们要理解 <code>docker build</code> 的工作原理。<code>Docker</code> 在运行时分为 <code>Docker</code> 引擎（也就是服务端守护进程）和客户端工具。<code>Docker</code> 的引擎提供了一组 <code>REST API</code>，被称为 <code>Docker Remote API</code>，而如 docker 命令这样的客户端工具，则是通过这组 API 与 Docker 引擎交互，从而完成各种功能。因此，虽然表面上我们好像是在本机执行各种 docker 功能，但实际上，一切都是使用的远程调用形式在服务端（Docker 引擎）完成。也因为这种 C/S 设计，让我们操作远程服务器的 Docker 引擎变得轻而易举。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/14/docker_bulid/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h2 id="理解Restful架构"><a href="#理解Restful架构" class="headerlink" title="理解Restful架构"></a>理解Restful架构</h2><h3 id="REST的由来"><a href="#REST的由来" class="headerlink" title="REST的由来"></a>REST的由来</h3><p>  在互联网行业，实践总是走在理论的前列。Web发展至今，面向静态文档的HTTP/1.0协议已经无法满足Web应用的开发需求，因此需要设计新版本的HTTP协议。当前的发展趋势，前端设备层出不穷，因此，必须有一种统一的机制，方便不同的前端设备与后端进行通信。Roy Fielding(Apache软件基金会的合作创始人) 在他的博士学位论文Architectural Styles and the Design of Network-based Software Architectures中，Fielding更为系统、严谨地阐述了这套理论框架，并且使用这套理论框架推导出了一种新的架构风格，并且为这种架构风格取了一个令人轻松愉快的名字“REST”——Representational State Transfer（表述性状态转移）的缩写。</p>
+<h3 id="Rest架构风格最重要的架构约束"><a href="#Rest架构风格最重要的架构约束" class="headerlink" title="Rest架构风格最重要的架构约束"></a>Rest架构风格最重要的架构约束</h3><ul>
+<li>客户-服务器（Client-Server）：通信只能由客户端单方面发起，表现为请求-响应的形式。</li>
+<li>无状态（Stateless）：通信的会话状态（Session State）应该全部由客户端负责维护。</li>
+<li>缓存（Cache）：响应内容可以在通信链的某处被缓存，以改善网络效率。</li>
+<li>统一接口（Uniform Interface）：通信链的组件之间通过统一的接口相互通信，以提高交互的可见性。</li>
+<li>分层系统（Layered System）：通过限制组件的行为（即，每个组件只能“看到”与其交互的紧邻层），将架构分解为若干等级的层。</li>
+<li>按需代码（Code-On-Demand，可选）：支持通过下载并执行一些代码（例如Java Applet、Flash或JavaScript），对客户端的功能进行扩展。</li>
+</ul>
+<h3 id="REST详解"><a href="#REST详解" class="headerlink" title="REST详解"></a>REST详解</h3><p> 如果深入理解REST，需要理解REST的五个关键词</p>
+<ul>
+<li>资源（Resource）</li>
+<li>资源的表述（Representation）</li>
+<li>状态转移（State Transfer）</li>
+<li>统一接口（Uniform Interface）</li>
+<li>超文本驱动（Hypertext Driven）</li>
+</ul>
+<p>什么是资源？<br><div class="note "><p>资源是一种看待服务器的方式，即，将服务器看作是由很多离散的资源组成。每个资源是服务器上一个可命名的抽象概念。因为资源是一个抽象的概念，所以它不仅仅能代表服务器文件系统中的一个文件、数据库中的一张表等等具体的东西，可以将资源设计的要多抽象有多抽象，只要想象力允许而且客户端应用开发者能够理解。与面向对象设计类似，资源是以名词为核心来组织的，首先关注的是名词。一个资源可以由一个或多个URI来标识。URI既是资源的名称，也是资源在Web上的地址。对某个资源感兴趣的客户端应用，可以通过资源的URI与其进行交互。</p>
+</div><br>什么是资源的表述？<br><div class="note "><p>资源的表述是一段对于资源在某个特定时刻的状态的描述。可以在客户端-服务器端之间转移（交换）。资源的表述可以有多种格式，例如HTML/XML/JSON/纯文本/图片/视频/音频等等。资源的表述格式可以通过协商机制来确定。请求-响应方向的表述通常使用不同的格式。</p>
+</div><br>什么是状态转移？<br><div class="note "><p>状态转移（state transfer）与状态机中的状态迁移（state transition）的含义是不同的。状态转移说的是：在客户端和服务器端之间转移（transfer）代表资源状态的表述。通过转移和操作资源的表述，来间接实现操作资源的目的。</p>
+</div><br>什么是统一接口？<br><div class="note "><p>REST要求，必须通过统一的接口来对资源执行各种操作。对于每个资源只能执行一组有限的操作。以HTTP/1.1协议为例，HTTP/1.1协议定义了一个操作资源的统一接口，主要包括以下内容：</p>
+<ul>
+<li><p>7个HTTP方法：GET/POST/PUT/DELETE/PATCH/HEAD/OPTIONS</p>
+</li>
+<li><p>HTTP头信息（可自定义）</p>
+</li>
+<li><p>HTTP响应状态代码（可自定义）</p>
+</li>
+<li><p>一套标准的内容协商机制</p>
+</li>
+<li><p>一套标准的缓存机制</p>
+</li>
+<li><p>一套标准的客户端身份认证机制</p>
+</li>
+</ul>
+<p>REST还要求，对于资源执行的操作，其操作语义必须由HTTP消息体之前的部分完全表达，不能将操作语义封装在HTTP消息体内部。这样做是为了提高交互的可见性，以便于通信链的中间组件实现缓存、安全审计等等功能。</p>
+</div><br>什么是超文本驱动？<br><div class="note "><p>“超文本驱动”又名“将超媒体作为应用状态的引擎”（Hypermedia As The Engine Of Application State，来自Fielding博士论文中的一句话，缩写为HATEOAS）。将Web应用看作是一个由很多状态（应用状态）组成的有限状态机。资源之间通过超链接相互关联，超链接既代表资源之间的关系，也代表可执行的状态迁移。在超媒体之中不仅仅包含数据，还包含了状态迁移的语义。以超媒体作为引擎，驱动Web应用的状态迁移。通过超媒体暴露出服务器所提供的资源，服务器提供了哪些资源是在运行时通过解析超媒体发现的，而不是事先定义的。从面向服务的角度看，超媒体定义了服务器所提供服务的协议。客户端应该依赖的是超媒体的状态迁移语义，而不应该对于是否存在某个URI或URI的某种特殊构造方式作出假设。一切都有可能变化，只有超媒体的状态迁移语义能够长期保持稳定。</p>
+</div></p>
+<h3 id="Rest风格6个的主要特征"><a href="#Rest风格6个的主要特征" class="headerlink" title="Rest风格6个的主要特征"></a>Rest风格6个的主要特征</h3><ul>
+<li>面向资源（Resource Oriented）</li>
+<li>可寻址（Addressability）</li>
+<li>连通性（Connectedness）</li>
+<li>无状态（Statelessness）</li>
+<li>统一接口（Uniform Interface）</li>
+<li>超文本驱动（Hypertext Driven）</li>
+</ul>
+<p>REST架构风格可以为Web开发者带来三方面的利益：</p>
+<p>简单性<br><div class="note "><p>采用REST架构风格，对于开发、测试、运维人员来说，都会更简单。可以充分利用大量HTTP服务器端和客户端开发库、Web功能测试/性能测试工具、HTTP缓存、HTTP代理服务器、防火墙。这些开发库和基础设施早已成为了日常用品，不需要什么火箭科技（例如神奇昂贵的应用服务器、中间件）就能解决大多数可伸缩性方面的问题。</p>
+</div><br>可伸缩性<br><div class="note "><p>充分利用好通信链各个位置的HTTP缓存组件，可以带来更好的可伸缩性。其实很多时候，在Web前端做性能优化，产生的效果不亚于仅仅在服务器端做性能优化，但是HTTP协议层面的缓存常常被一些资深的架构师完全忽略掉。</p>
+</div><br>松耦合<br><div class="note "><p>统一接口+超文本驱动，带来了最大限度的松耦合。允许服务器端和客户端程序在很大范围内，相对独立地进化。对于设计面向企业内网的API来说，松耦合并不是一个很重要的设计关注点。但是对于设计面向互联网的API来说，松耦合变成了一个必选项，不仅在设计时应该关注，而且应该放在最优先位置。</p>
+</div></p>
+
+          
         
       
     </div>
@@ -460,7 +503,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Darling程序员">
+      <meta itemprop="name" content="Darling Programmer">
     </span>
 
     
@@ -470,7 +513,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/07/05/how_can_solve_insert_need_where_in_sql/" itemprop="url">如何兼容性解决数据库insert时添加where条件</a></h1>
+                <a class="post-title-link" href="/2017/07/05/how_can_solve_insert_need_where_in_sql/" itemprop="url">insert+where特殊场景的解决方案</a></h1>
         
 
         <div class="post-meta">
@@ -652,7 +695,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
